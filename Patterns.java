@@ -14,7 +14,7 @@ public class Patterns {
         }
     }
 
-    public static void invertedRotatedHalfPyramidPattern(int totalRows) {
+    public static void invertedRotatedHalfPyramidPattern_Method1(int totalRows) {
         int totalColums = totalRows; // This is a Square matrix
         for (int row = 1; row <= totalRows; row++) {
             int space = totalColums - row;
@@ -29,8 +29,24 @@ public class Patterns {
         }
     }
 
+    public static void invertedRotatedHalfPyramidPattern_Method2(int totalRows) {
+        for (int row = 1; row <= totalRows; row++) {
+            // Print spaces
+            for (int space = 1; space <= (totalRows - row); space++) {
+                System.out.print(" ");
+            }
+
+            // Print stars
+            for (int star = 1; star <= row; star++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         // hollowPattern(4, 5);
-        invertedRotatedHalfPyramidPattern(100);
+        invertedRotatedHalfPyramidPattern_Method2(5);
     }
 }
