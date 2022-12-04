@@ -119,6 +119,7 @@ public class Patterns {
             for (int star = 1; star <= row; star++) {
                 System.out.print("*");
             }
+
             // spaces
             for (int space = 1; space <= 2 * (totalLine - row); space++) {
                 System.out.print(" ");
@@ -150,12 +151,87 @@ public class Patterns {
         }
     }
 
+    public static void rhombus(int totalLine) {
+        for (int row = 1; row <= totalLine; row++) {
+
+            // spaces
+            for (int space = 1; space <= (totalLine - row); space++) {
+                System.out.print(" ");
+            }
+
+            // starts
+            for (int star = 1; star <= totalLine; star++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static void hollowRhombus(int totalLine) {
+        for (int row = 1; row <= totalLine; row++) {
+
+            // spaces
+            for (int space = 1; space <= (totalLine - row); space++) {
+                System.out.print(" ");
+            }
+
+            // starts
+            for (int column = 1; column <= totalLine; column++) {
+                if (row == 1 || row == totalLine || column == 1 || column == totalLine) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static void diamond(int totalLine) {
+        for (int row = 1; row <= totalLine; row++) {
+
+            // spaces (n-i)
+            for (int space = 1; space <= (totalLine - row); space++) {
+                System.out.print(" ");
+            }
+
+            // starts (2*i)-1
+            for (int star = 1; star <= (2 * row) - 1; star++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+
+        }
+        // Invert
+        for (int row = totalLine; row >= 1; row--) {
+
+            // spaces (n-i)
+            for (int space = 1; space <= (totalLine - row); space++) {
+                System.out.print(" ");
+            }
+
+            // starts
+            for (int star = 1; star <= (2 * row) - 1; star++) {
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
+    }
+
     public static void main(String[] args) {
         // hollowPattern(4, 5);
         // invertedRotatedHalfPyramidPattern_Method2(5);
         // invertHalfPyramidNumber(5);
         // floydsTriangle(9);
         // zeroOneTriangle(5);
-        butterflyPatternMethod2(4);
+        // butterflyPatternMethod2(4);
+        // rhombus(7);
+        // hollowRhombus(7);
+        diamond(4);
     }
 }
