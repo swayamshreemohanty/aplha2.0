@@ -72,10 +72,10 @@ public class Array {
             }
         }
 
-        System.out.println("Max Subarray sum is:"+maxSum);
+        System.out.println("Max Subarray sum is:" + maxSum);
     }
 
-    public static void subArray(int[] array) {
+    public static void maxSubArraySum(int[] array) {
         int totalSubArray = 0; // (n(n+1))/2
         int maxSubArraySum = Integer.MIN_VALUE;
         for (int startIndex = 0; startIndex < array.length; startIndex++) {
@@ -100,10 +100,26 @@ public class Array {
         System.out.println("Max SubArray SUM: " + maxSubArraySum);
     }
 
+    public static void maxSubArraySumKadane(int[] array) {
+
+        int maxSubArraySum = Integer.MIN_VALUE;
+        int currentSum = 0;
+        for (int index = 0; index < array.length; index++) {
+            currentSum += array[index];
+            if (currentSum < 0) {
+                currentSum = 0;
+            } else if (currentSum > maxSubArraySum) {
+                maxSubArraySum = currentSum;
+            }
+        }
+
+        System.out.println("Max SubArray SUM: " + maxSubArraySum);
+    }
+
     public static void main(String[] args) {
         // int[] array = { 2, 4, 6, 8, 10 };
         int[] array = { 1, -2, 6, -1, 3 };
         // subArray(array);
-        maxSubArraySumByPrefixArray(array);
+        maxSubArraySumKadane(array);
     }
 }
