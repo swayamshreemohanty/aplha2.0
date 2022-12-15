@@ -50,8 +50,10 @@ public class TrappingRainwater {
                 waterTrapped = 0;
             }
             System.out.println("waterTrapped: " + waterTrapped);
-            System.out.println();
             totalWaterTrappedSum += waterTrapped;
+
+            //new line
+            System.out.println();
         }
 
         System.out.println("Total waterTrapped: " + totalWaterTrappedSum);
