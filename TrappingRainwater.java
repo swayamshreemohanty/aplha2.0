@@ -8,7 +8,7 @@ public class TrappingRainwater {
             int rightMaxHeight = Integer.MIN_VALUE;
             // Find left side max height
             // 1
-            if (barIndex <= 0) { // Extact at 1st index
+            if (barIndex == 0) { // Extact at 1st index
                 leftMaxHeight = heights[barIndex];
             } else {
                 // 2
@@ -24,7 +24,6 @@ public class TrappingRainwater {
             if (barIndex == heights.length - 1) {// Extact at last index
                 rightMaxHeight = heights[barIndex];
             } else {
-
                 // 2
                 for (int rightIndex = barIndex + 1; rightIndex < heights.length; rightIndex++) {
                     if (heights[rightIndex] > rightMaxHeight) {
@@ -52,7 +51,7 @@ public class TrappingRainwater {
             System.out.println("waterTrapped: " + waterTrapped);
             totalWaterTrappedSum += waterTrapped;
 
-            //new line
+            // new line
             System.out.println();
         }
 
@@ -60,8 +59,51 @@ public class TrappingRainwater {
 
     }
 
+    private static int trappingRainWater(int[] heights) {
+        int heightArrayLength = heights.length;
+        // 1 // Calculate the left max boundary for every boundary//
+
+        // define the left max boundaries holding array:
+        int[] leftMaxBoundaries = new int[heightArrayLength];
+
+        // Our 1st bar should the left max boundary
+        leftMaxBoundaries[0] = heights[0];
+
+        // Calculate the left max boudnaries from the 2nd place of the heights array
+        for (int boundaryIndex = 1; boundaryIndex < heightArrayLength; boundaryIndex++) {
+            leftMaxBoundaries[boundaryIndex] = Math.max(leftMaxBoundaries[boundaryIndex - 1], heights[boundaryIndex]);
+        }
+
+        // 2 // Calculate the right max boundary for every boundary//
+        // define the right max boundaries holding array:
+        int[] rightMaxBoundaries = new int[heightArrayLength];
+
+        // Our last bar should the right max boundary
+        rightMaxBoundaries[heightArrayLength - 1] = heights[heightArrayLength - 1];
+
+        // Calculate the left right boudnaries from the last 2nd place of the heights
+        for (int boundaryIndex = heightArrayLength - 2; boundaryIndex >= 0; boundaryIndex--) {
+            rightMaxBoundaries[boundaryIndex] = Math.max(rightMaxBoundaries[boundaryIndex + 1], heights[boundaryIndex]);
+        }
+
+        // 3//Calculate the trapping rain water
+        int totalTrappedRainWaters = 0;
+
+        for (int boundaryIndex = 0; boundaryIndex < rightMaxBoundaries.length; boundaryIndex++) {
+            // Take the min height from the left and right max bars as water level
+            int waterLevel = Math.min(leftMaxBoundaries[boundaryIndex], rightMaxBoundaries[boundaryIndex]);
+
+            // calculate trapped water
+            // Trapped Water = (Water_level - Bar_height) * Bar_width
+            totalTrappedRainWaters += ((waterLevel - heights[boundaryIndex]) * 1);
+        }
+
+        return totalTrappedRainWaters;
+    }
+
     public static void main(String[] args) {
         int[] heights = { 4, 2, 0, 6, 3, 2, 5 };
-        findWaterTrapBruteForce(heights);
+
+        System.out.println("Total water will trap: " + trappingRainWater(heights));
     }
 }
