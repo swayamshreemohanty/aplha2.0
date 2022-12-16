@@ -1,0 +1,22 @@
+I   0 1 2 3 4 5 6
+B   4 2 0 6 3 2 5
+LBA 4 4 4 6 6 6 6
+RBA 6 6 6 6 5 5 5
+
+MWL 4 4 4 6 5 5 5
+
+Formula	(MWL-B)*Width (here width is 1)
+WV  0 2 4 0 2 3 0
+TWV 11  
+
+//Docs//
+LBA- Left Maximum boundary Array
+RBA- Right Maximum boundary Array
+B- Boundary
+I- Index
+
+MWL- Minimum Water Level
+
+WV- Water Volume
+
+TWV- Total Water Volume
