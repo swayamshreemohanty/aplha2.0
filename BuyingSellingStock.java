@@ -6,7 +6,7 @@ public class BuyingSellingStock {
 
         for (int day = 0; day < stockPrices.length; day++) {
             if (buyPrice < stockPrices[day]) {
-                int profit = stockPrices[day] - buyPrice;
+                int profit = stockPrices[day] - buyPrice; // Today's profit
                 maxProfit = Integer.max(maxProfit, profit);
             } else {
                 buyPrice = stockPrices[day];
