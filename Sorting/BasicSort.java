@@ -38,6 +38,19 @@ public class BasicSort {
         }
     }
 
+    public static void insertionSort(int[] arr) {
+        for (int turn = 1; turn < arr.length; turn++) {
+            int currentElement = arr[turn];
+            int previousIndex = turn - 1;
+            while (previousIndex >= 0 && arr[previousIndex] > currentElement) {
+                arr[previousIndex + 1] = arr[previousIndex];
+                previousIndex--;
+            }
+            // Insertion
+            arr[previousIndex + 1] = currentElement;
+        }
+    }
+
     public static void main(String[] args) {
         int[] array = { 5, 4, 1, 3, 2 };
 
@@ -46,7 +59,7 @@ public class BasicSort {
         printArray(array);
 
         // Sorting
-        selectionSort(array);
+        insertionSort(array);
         //
 
         ///
