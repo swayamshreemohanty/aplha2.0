@@ -42,8 +42,31 @@ public class BitManipulation {
         return number & bitMask;
     }
 
+    // Clear range of bits
+    private static int clearBitsinRange(int number, int from, int to) {
+        int bitMask = ((~0) << (to + 1)) | ((1 << from) - 1);
+        return number & bitMask;
+    }
+
+    // Check the number is Power of 2 or not
+    private static boolean isPowerofTwo(int number) {
+        return (number & (number - 1)) == 0;
+    }
+
+    // Check for set bits
+    private static int checkSetBit(int number) {
+        int count = 0;
+        while (number > 0) {
+            if ((number & 1) != 0) {
+                count++;
+            }
+            number = number >> 1;
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
-        System.out.println(cleariThbits(15, 2));
+        System.out.println(checkSetBit(10));
 
     }
 }
