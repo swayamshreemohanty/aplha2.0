@@ -25,7 +25,7 @@ public class Interfaces {
         @Override
         public void eats() {
             // TODO Auto-generated method stub
-            
+
         }
 
     }
