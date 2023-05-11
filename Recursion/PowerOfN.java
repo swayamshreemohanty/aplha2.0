@@ -16,15 +16,15 @@ public class PowerOfN {
         // Find the power of a half series
         int halfPowerValue = findPowerOptimized(number, power / 2);
 
-        //Find the square of that power value
+        // Find the square of that power value
         int halfPowerSquare = halfPowerValue * halfPowerValue;
 
-        if (power % 2 != 0) {
-            // Odd number
-            return number * halfPowerSquare;
-        } else {
+        if (power % 2 == 0) {
             // Even number
             return halfPowerSquare;
+        } else {
+            // Odd number
+            return number * halfPowerSquare;
         }
 
     }
