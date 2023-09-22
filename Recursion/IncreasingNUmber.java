@@ -1,4 +1,4 @@
-public class IncreasingNUmber {
+public class IncreasingNumber {
 
     public static void printIncreaseNumber(int number) {
         if (number == 1) {
