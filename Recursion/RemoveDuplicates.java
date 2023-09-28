@@ -2,6 +2,7 @@ public class RemoveDuplicates {
 
     public static void removeDuplicates(String queryString, int queryStringIndex, boolean mapArr[],
             StringBuilder uniqueString) {
+
         // base case
         if (queryStringIndex == queryString.length()) {
             // Print the unique String, because in this case,
@@ -28,7 +29,7 @@ public class RemoveDuplicates {
 
             // if the mapArr[currentCharIndexOnMap] is false, mean the character from the
             // queryString is not appear before. In this case take the mapArr[currentCharIndexOnMap] to true
-            //because on the next check it will not append the char in uniqueString
+            // because on the next check it will not append the char in uniqueString
             if (mapArr[currentCharIndexOnMap] == false) {
                 mapArr[currentCharIndexOnMap] = true;
                 uniqueString.append(currentChar);
@@ -39,7 +40,7 @@ public class RemoveDuplicates {
     }
 
     public static void main(String[] args) {
-        String queryString = "appnnacollege";
+        String queryString = "ass";
         int queryStringIndex = 0;
         StringBuilder uniqueString = new StringBuilder("");
         boolean mapArr[] = new boolean[26];
