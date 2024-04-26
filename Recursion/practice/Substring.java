@@ -11,9 +11,12 @@ public class Substring {
         int res = countSubString(str, i + 1, j, n - 1) + countSubString(str, i, j - 1, n - 1)
                 - countSubString(str, i + 1, j - 1, n - 2);
 
+        System.out.println("Before Res: " + res + " ");
+
         if (str.charAt(i) == str.charAt(j)) {
             res++;
         }
+        System.out.println("After Res: " + res + " ");
         return res;
     }
 
