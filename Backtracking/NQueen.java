@@ -43,6 +43,7 @@ public class NQueen {
         // base
         if (row == board.length) {
             printBoard(board);
+            count++;
             return;
         }
 
@@ -56,8 +57,32 @@ public class NQueen {
         }
     }
 
+    // to store the count of the total ways
+    static int count = 0;
+
+    public static boolean nQueenOneSolution(char board[][], int row) {
+
+        // base
+        if (row == board.length) {
+            return true;
+        }
+
+        // column loop
+        for (int j = 0; j < board.length; j++) {
+            if (isSafe(board, row, j)) {
+                board[row][j] = 'Q';
+                if (nQueenOneSolution(board, row + 1)) {
+                    return true;
+                }
+                board[row][j] = '.';
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
-        int n = 10;
+        int n = 4;
         char board[][] = new char[n][n];
 
         // initialize
@@ -66,8 +91,15 @@ public class NQueen {
                 board[i][j] = '.';
             }
         }
-
         nQueen(board, 0);
+        System.out.println(count);
+        // if (nQueenOneSolution(board, 0)) {
+        // System.out.println("Solution is possible");
+        // printBoard(board);
+        // } else {
+        // System.out.println("Solution is not possible");
+
+        // }
 
     }
 
